@@ -8,7 +8,19 @@ namespace PracticaTDD
     {
         public long CalcularFactorial(int n)
         {
-            return 0;
+            if (n < 0)
+            {
+                return -1;
+            }
+
+            long resultado = 1;
+
+            for (int i = 2; i <= n; i++)
+            {
+                resultado *= i;
+            }
+
+            return resultado;
         }
     }
 }
