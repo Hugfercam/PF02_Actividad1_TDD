@@ -22,5 +22,12 @@ namespace PracticaTDD
 
             return resultado;
         }
+
+        public bool EsContrasenyaValida(string contrasenya)
+        {
+            return false;
+        }
     }
-}
+
+    
+    }

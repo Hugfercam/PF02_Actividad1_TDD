@@ -55,5 +55,65 @@ namespace PracticaTDD.Tests
 
             Assert.AreEqual(6227020800L, resultado);
         }
+
+        [TestMethod]
+        public void EsContrasenyaValida_Nula_DevuelveFalse()
+        {
+            Funciones funciones = new Funciones();
+
+            bool resultado = funciones.EsContrasenyaValida(null!);
+
+            Assert.IsFalse(resultado);
+        }
+
+        [TestMethod]
+        public void EsContrasenyaValida_Vacia_DevuelveFalse()
+        {
+            Funciones funciones = new Funciones();
+
+            bool resultado = funciones.EsContrasenyaValida("");
+
+            Assert.IsFalse(resultado);
+        }
+
+        [TestMethod]
+        public void EsContrasenyaValida_SieteCaracteresConAlmohadilla_DevuelveFalse()
+        {
+            Funciones funciones = new Funciones();
+
+            bool resultado = funciones.EsContrasenyaValida("abcdef#");
+
+            Assert.IsFalse(resultado);
+        }
+
+        [TestMethod]
+        public void EsContrasenyaValida_OchoCaracteresSinAlmohadilla_DevuelveFalse()
+        {
+            Funciones funciones = new Funciones();
+
+            bool resultado = funciones.EsContrasenyaValida("abcdefgh");
+
+            Assert.IsFalse(resultado);
+        }
+
+        [TestMethod]
+        public void EsContrasenyaValida_OchoCaracteresConAlmohadilla_DevuelveTrue()
+        {
+            Funciones funciones = new Funciones();
+
+            bool resultado = funciones.EsContrasenyaValida("abcdefg#");
+
+            Assert.IsTrue(resultado);
+        }
+
+        [TestMethod]
+        public void EsContrasenyaValida_MasDeOchoCaracteresConAlmohadilla_DevuelveTrue()
+        {
+            Funciones funciones = new Funciones();
+
+            bool resultado = funciones.EsContrasenyaValida("abcd#efghij");
+
+            Assert.IsTrue(resultado);
+        }
     }
 }
