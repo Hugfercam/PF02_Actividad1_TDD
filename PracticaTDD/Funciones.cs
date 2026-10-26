@@ -4,7 +4,32 @@ using System.Text;
 
 namespace PracticaTDD
 {
-    internal class Funciones
+    public class Funciones
     {
+        public long CalcularFactorial(int n)
+        {
+            if (n < 0)
+            {
+                return -1;
+            }
+
+            long resultado = 1;
+
+            for (int i = 2; i <= n; i++)
+            {
+                resultado *= i;
+            }
+
+            return resultado;
+        }
+
+        public bool EsContrasenyaValida(string contrasenya)
+        {
+            return !string.IsNullOrEmpty(contrasenya)
+                && contrasenya.Length >= 8
+                && contrasenya.Contains("#");
+        }
     }
-}
+
+    
+    }
