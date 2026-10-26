@@ -25,7 +25,9 @@ namespace PracticaTDD
 
         public bool EsContrasenyaValida(string contrasenya)
         {
-            return false;
+            return !string.IsNullOrEmpty(contrasenya)
+                && contrasenya.Length >= 8
+                && contrasenya.Contains("#");
         }
     }
 
